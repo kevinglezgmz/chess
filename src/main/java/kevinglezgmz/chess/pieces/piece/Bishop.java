@@ -1,6 +1,6 @@
-package Chess.ChessPieces.Pieces;
+package kevinglezgmz.chess.pieces.piece;
 
-import Chess.ChessPieces.ChessPiece;
+import kevinglezgmz.chess.pieces.ChessPiece;
 
 public class Bishop extends ChessPiece {
   public static char symbol = 'B';

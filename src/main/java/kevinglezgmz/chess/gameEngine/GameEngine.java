@@ -1,11 +1,11 @@
-package Chess;
+package kevinglezgmz.chess.gameEngine;
 
-import Chess.ChessPieces.Pieces.*;
+import kevinglezgmz.chess.pieces.*;
 
 import java.io.IOException;
 import java.util.Scanner;
 
-import Chess.ChessPieces.*;
+import kevinglezgmz.chess.pieces.piece.*;
 
 public class GameEngine {
   private boolean isPlayerOne;
@@ -89,7 +89,6 @@ public class GameEngine {
     ChessPiece piece = getPiece(playerSelectedTile);
     ChessPiece moveToPiece = getPiece(playerMoveToTile);
     boolean isValidMovement = piece.isValidMovement(this.board, playerMoveToTile[0], playerMoveToTile[1]);
-    System.out.println(isValidMovement);
     sc.nextLine();
     if (isValidMovement && moveToPiece == null) {
       movePiece(playerSelectedTile, playerMoveToTile);

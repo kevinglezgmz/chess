@@ -1,4 +1,4 @@
-package Chess.ChessPieces;
+package kevinglezgmz.chess.pieces;
 
 public abstract class ChessPiece {
   protected boolean isWhite;
@@ -77,7 +77,8 @@ public abstract class ChessPiece {
   protected boolean isLineWithClearPath(ChessPiece[][] board, char xAxis, char yAxis, int xDirection, int yDirection) {
     xAxis += xDirection;
     yAxis += yDirection;
-    while (this.xAxis != xAxis && this.yAxis != yAxis) {
+    while (this.xAxis != xAxis || this.yAxis != yAxis) {
+      System.out.println("Checking " + xAxis + "" + yAxis);
       int row = indexOfY(yAxis);
       int col = indexOfX(xAxis);
       if (board[row][col] != null)
