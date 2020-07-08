@@ -50,6 +50,7 @@ public class Pawn extends ChessPiece {
     if (board[row - res][col] == null) {
       return false;
     }
+    
     return true;
   }
 
@@ -60,6 +61,7 @@ public class Pawn extends ChessPiece {
       int res = this.isWhite ? 1 : -1;
 
       if (row - res < 0 || row + res > 7) {
+
         return false;
       }
 
@@ -67,6 +69,7 @@ public class Pawn extends ChessPiece {
         return false;
       }
       return true;
+      
     } else if (this.absoluteDifferenceY(yAxis) == 2) {
       int col = indexOfX(this.xAxis);
 
@@ -77,6 +80,7 @@ public class Pawn extends ChessPiece {
     }
 
     return false;
+
   }
 
   private boolean validateWhitePawnFirstMovement(ChessPiece[][] board, int col) {

@@ -62,6 +62,7 @@ public abstract class ChessPiece {
     return yAxis < this.yAxis ? 1 : -1;
   }
 
+
   public char[] getPosition() {
     return new char[] { this.xAxis, this.yAxis };
   }
@@ -83,7 +84,6 @@ public abstract class ChessPiece {
       if (board[row][col] != null) {
         return false;
       }
-
       xAxis += xDirection;
       yAxis += yDirection;
     }
