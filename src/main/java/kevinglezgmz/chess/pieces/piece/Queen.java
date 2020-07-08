@@ -12,20 +12,20 @@ public class Queen extends ChessPiece {
   protected boolean validateMovement(ChessPiece[][] board, char xAxis, char yAxis) {
 
     // if piece is not moving in diagonal or straight line we return false
-    if (absoluteDifferenceX(xAxis) != absoluteDifferenceY(yAxis)) {
+    if (this.absoluteDifferenceX(xAxis) != this.absoluteDifferenceY(yAxis)) {
       if (this.xAxis != xAxis && this.yAxis != yAxis) {
         return false;
       }
     }
-    int xDirection = moveDirectionX(xAxis);
-    int yDirection = moveDirectionY(yAxis);
+    int xDirection = this.moveDirectionX(xAxis);
+    int yDirection = this.moveDirectionY(yAxis);
     if (this.xAxis == xAxis) {
       xDirection = 0;
     }
     if (this.yAxis == yAxis) {
       yDirection = 0;
     }
-    return isLineWithClearPath(board, xAxis, yAxis, xDirection, yDirection);
+    return this.isLineWithClearPath(board, xAxis, yAxis, xDirection, yDirection);
   }
 
   @Override

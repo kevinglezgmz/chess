@@ -11,12 +11,12 @@ public class Bishop extends ChessPiece {
 
   protected boolean validateMovement(ChessPiece[][] board, char xAxis, char yAxis) {
     // if distance in x does not equal distance in y it is not a valid movement
-    if (absoluteDifferenceX(xAxis) != absoluteDifferenceY(yAxis)) {
+    if (this.absoluteDifferenceX(xAxis) != this.absoluteDifferenceY(yAxis)) {
       return false;
     }
-    int xDirection = moveDirectionX(xAxis);
-    int yDirection = moveDirectionY(yAxis);
-    return isLineWithClearPath(board, xAxis, yAxis, xDirection, yDirection);
+    int xDirection = this.moveDirectionX(xAxis);
+    int yDirection = this.moveDirectionY(yAxis);
+    return this.isLineWithClearPath(board, xAxis, yAxis, xDirection, yDirection);
   }
 
   @Override

@@ -14,14 +14,14 @@ public class Rook extends ChessPiece {
     if (this.xAxis != xAxis && this.yAxis != yAxis) {
       return false;
     }
-    int xDirection = moveDirectionX(xAxis);
-    int yDirection = moveDirectionY(yAxis);
+    int xDirection = this.moveDirectionX(xAxis);
+    int yDirection = this.moveDirectionY(yAxis);
     if (this.xAxis == xAxis) {
       xDirection = 0;
     } else {
       yDirection = 0;
     }
-    return isLineWithClearPath(board, xAxis, yAxis, xDirection, yDirection);
+    return this.isLineWithClearPath(board, xAxis, yAxis, xDirection, yDirection);
   }
 
   @Override

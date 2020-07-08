@@ -18,9 +18,9 @@ public abstract class ChessPiece {
   public boolean isValidMovement(ChessPiece[][] board, char xAxis, char yAxis) {
     if (!isValidPosition(xAxis, yAxis)) {
       return false;
-    } else {
-      return validateMovement(board, xAxis, yAxis);
     }
+
+    return validateMovement(board, xAxis, yAxis);
   }
 
   public boolean isValidPosition(char xAxis, char yAxis) {
@@ -46,10 +46,6 @@ public abstract class ChessPiece {
     return isInsideXAxis && isInsideYAxis;
   }
 
-  public char[] getPosition() {
-    return new char[] { this.xAxis, this.yAxis };
-  }
-
   public int absoluteDifferenceX(char xAxis) {
     return Math.abs(this.xAxis - xAxis);
   }
@@ -66,6 +62,10 @@ public abstract class ChessPiece {
     return yAxis < this.yAxis ? 1 : -1;
   }
 
+  public char[] getPosition() {
+    return new char[] { this.xAxis, this.yAxis };
+  }
+
   public static int indexOfX(char xAxis) {
     return xAxis - 'a';
   }
@@ -78,11 +78,12 @@ public abstract class ChessPiece {
     xAxis += xDirection;
     yAxis += yDirection;
     while (this.xAxis != xAxis || this.yAxis != yAxis) {
-      System.out.println("Checking " + xAxis + "" + yAxis);
       int row = indexOfY(yAxis);
       int col = indexOfX(xAxis);
-      if (board[row][col] != null)
+      if (board[row][col] != null) {
         return false;
+      }
+
       xAxis += xDirection;
       yAxis += yDirection;
     }
