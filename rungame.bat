@@ -1,1 +1,1 @@
-java -cp target/chess-1.0.jar kevinglezgmz.chess.App
+java -cp chess-1.0.jar kevinglezgmz.chess.App
