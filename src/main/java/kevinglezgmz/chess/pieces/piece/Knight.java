@@ -11,9 +11,9 @@ public class Knight extends ChessPiece {
 
   protected boolean validateMovement(ChessPiece[][] board, char xAxis, char yAxis) {
     // can only move in 'L' shape (2 hor and 1 ver or viceversa)
-    if (absoluteDifferenceX(xAxis) == 2 && absoluteDifferenceY(yAxis) == 1) {
+    if (this.absoluteDifferenceX(xAxis) == 2 && this.absoluteDifferenceY(yAxis) == 1) {
       return true;
-    } else if (absoluteDifferenceX(xAxis) == 1 && absoluteDifferenceY(yAxis) == 2) {
+    } else if (this.absoluteDifferenceX(xAxis) == 1 && this.absoluteDifferenceY(yAxis) == 2) {
       return true;
     }
     return false;

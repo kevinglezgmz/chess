@@ -58,38 +58,41 @@ public class GameEngine {
     }
   }
 
-  private int[] getMatrixIndexes(char[] selectedTile) {
+  protected static int[] getMatrixIndexes(char[] selectedTile) {
     int[] coords = new int[2];
     coords[0] = ChessPiece.indexOfY(selectedTile[1]);
     coords[1] = ChessPiece.indexOfX(selectedTile[0]);
     return coords;
   }
 
-  private ChessPiece getPiece(char[] selectedTile) {
+  protected ChessPiece getPiece(char[] selectedTile) {
     int[] coords = getMatrixIndexes(selectedTile);
     int row = coords[0];
     int col = coords[1];
     return board[row][col];
   }
 
-  private void movePiece(char[] playerSelectedTile, char[] playerMoveToTile) {
+
+  protected void movePiece(char[] playerSelectedTile, char[] playerMoveToTile) {
     int[] pieceCoords = getMatrixIndexes(playerSelectedTile);
     int pieceRow = pieceCoords[0];
     int pieceCol = pieceCoords[1];
+
     int[] moveToCoords = getMatrixIndexes(playerMoveToTile);
     int moveToRow = moveToCoords[0];
     int moveToCol = moveToCoords[1];
+
     ChessPiece tmp = board[pieceRow][pieceCol];
     board[pieceRow][pieceCol] = null;
     board[moveToRow][moveToCol] = tmp;
     tmp.setPosition(playerMoveToTile[0], playerMoveToTile[1]);
   }
 
-  private boolean canMovePieceTo(char[] playerSelectedTile, char[] playerMoveToTile, boolean isPlayerOne) {
+  protected boolean canMovePieceTo(char[] playerSelectedTile, char[] playerMoveToTile, boolean isPlayerOne) {
     ChessPiece piece = getPiece(playerSelectedTile);
     ChessPiece moveToPiece = getPiece(playerMoveToTile);
     boolean isValidMovement = piece.isValidMovement(this.board, playerMoveToTile[0], playerMoveToTile[1]);
-    sc.nextLine();
+
     if (isValidMovement && moveToPiece == null) {
       movePiece(playerSelectedTile, playerMoveToTile);
       return true;
@@ -197,11 +200,11 @@ public class GameEngine {
     board[0][5] = new Bishop('f', '8', false);
 
     // set white king and queen
-    board[7][3] = new King('d', '1', true);
-    board[7][4] = new Queen('e', '1', true);
+    board[7][4] = new King('e', '1', true);
+    board[7][3] = new Queen('d', '1', true);
     // set black king and queen
-    board[0][3] = new King('d', '8', false);
-    board[0][4] = new Queen('e', '8', false);
+    board[0][4] = new King('e', '8', false);
+    board[0][3] = new Queen('d', '8', false);
 
     return board;
   }

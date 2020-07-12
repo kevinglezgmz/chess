@@ -11,9 +11,10 @@ public class King extends ChessPiece {
 
   protected boolean validateMovement(ChessPiece[][] board, char xAxis, char yAxis) {
     // can only move 1 block in any direction
-    if (absoluteDifferenceX(xAxis) > 1 || absoluteDifferenceY(yAxis) > 1) {
+    if (this.absoluteDifferenceX(xAxis) > 1 || this.absoluteDifferenceY(yAxis) > 1) {
       return false;
     }
+
     return true;
   }
 
